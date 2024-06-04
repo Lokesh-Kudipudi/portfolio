@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  padding: 24px;
+}
+
+section {
+  animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
+}
+
+.devImage {
+  -webkit-mask-image: url("/blob.svg");
+}
+
+/* UnderlinedText.css */
+.underline-container {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.underline-container::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.underline-container:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
