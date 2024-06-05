@@ -10,18 +10,16 @@ function Project({
   colors,
 }) {
   return (
-    <div className="flex items-center gap-8 border-4 border-dashed border-black p-4">
-      <img className="h-[180px]" src={`${imagePath}`} alt="none" />
+    <div className="flex flex-col items-center gap-4 border-4 border-dashed border-black p-4 md:flex-row md:gap-8">
+      <img className="w-[200px]" src={`${imagePath}`} alt="none" />
       <div>
-        <h1 className="mb-3 text-[24px]">{projectName}</h1>
-
-        <p className="mb-[4px] flex items-center text-[18px]">
-          Tech Stack Used:
+        <h1 className="text-xl md:text-2xl">{projectName}</h1>
+        <div className="mb-2 p-1">
           {labels.map((label, i) => (
             <Label key={i} color={colors[i]} text={label}></Label>
           ))}
-        </p>
-        <p className="mb-[4px] leading-[1.15]">{projectDescription}</p>
+        </div>
+        <p className="mb-2 md:text-lg">{projectDescription}</p>
         <Link to={liveLink} className="ml-1 text-sky-500">
           Live Demo
         </Link>

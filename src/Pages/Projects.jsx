@@ -2,11 +2,11 @@ import Project from "../Components/Project";
 
 function Projects() {
   return (
-    <section className="mx-auto flex h-[70vh] max-w-[1200px] flex-col items-center gap-8">
-      <h1 className="underline-container w-[fit] text-4xl font-bold">
+    <section className="mx-auto flex max-w-[1200px] flex-col items-center">
+      <h1 className="underline-container mb-6 w-[fit] text-2xl font-bold">
         Here are my Projects!
       </h1>
-      <div className="flex flex-col gap-4 overflow-scroll p-4">
+      <div className="flex h-[65vh] flex-col gap-4 overflow-scroll p-6">
         <Project
           imagePath="project1.png"
           projectName="My Portifolio"

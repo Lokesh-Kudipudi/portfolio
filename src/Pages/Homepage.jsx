@@ -18,22 +18,27 @@ function Homepage() {
   };
 
   return (
-    <section className="mx-auto grid h-[70vh] max-w-[1200px] grid-cols-2 dark:text-white">
-      <div className="flex flex-col justify-center p-4">
-        <p className="mb-[-12.5px] text-[24px]">Namaste!</p>
-        <p className="mb-[-10px] text-[24px]">I Like</p>
-        <p className="mb-[-15px] text-[48px] font-bold">
-          Web Development <span className="text-[18px]">&</span>
+    <section className="mx-auto flex max-w-[1200px] flex-col items-center sm:flex-row sm:justify-around xl:justify-between">
+      <div className="mobile">
+        <img src="DevImage.JPG" alt="dev" className="devImage h-[350px]" />
+      </div>
+      <div className="flex flex-col justify-center p-4 sm:text-xl xl:text-2xl">
+        <p>Namaste!</p>
+        <p>I Like</p>
+        <p className="text-[22px] font-bold sm:text-3xl xl:text-5xl">
+          Web Development <span className="text-sm sm:text-xs">&</span>
         </p>
-        <p className="text-right text-[48px] font-bold">Machine Learning </p>
+        <p className="mb-5 text-right text-[22px] font-bold sm:text-3xl xl:text-5xl">
+          Machine Learning
+        </p>
         <button
           onClick={handleDownload}
-          className="inline w-fit rounded-xl bg-black p-3 text-[18px] text-white dark:bg-white dark:text-black"
+          className="inline w-fit rounded-xl bg-black p-2 text-base text-white sm:p-3"
         >
           Download Resume
         </button>
       </div>
-      <div>
+      <div className="desktop">
         <img src="DevImage.JPG" alt="dev" className="devImage h-[500px]" />
       </div>
     </section>

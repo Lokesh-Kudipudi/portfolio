@@ -3,14 +3,14 @@ import handleHover from "../utils/index";
 
 function Skills() {
   return (
-    <section className="mx-auto flex h-[70vh] max-w-[1200px] flex-col items-center gap-8">
-      <h1 className="underline-container text-4xl font-bold">
+    <section className="mx-auto flex max-w-[1200px] flex-col items-center gap-8">
+      <h1 className="underline-container text-2xl font-bold">
         These are my Skills!
       </h1>
       <div
         onMouseOver={(e) => handleHover(e, 0.5)}
         onMouseOut={(e) => handleHover(e, 1)}
-        className="skills grid grid-cols-4 gap-x-12 gap-y-6 overflow-scroll p-14"
+        className="skills grid h-[65vh] grid-cols-2 gap-x-4 gap-y-3 overflow-scroll p-6 sm:grid-cols-3 md:grid-cols-4 md:gap-x-12 md:gap-y-6"
       >
         <Skill imagePath="html.svg" text="HTML"></Skill>
         <Skill imagePath="css.svg" text="CSS"></Skill>

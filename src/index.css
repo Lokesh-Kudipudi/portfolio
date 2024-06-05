@@ -28,6 +28,8 @@ section {
 
 .devImage {
   -webkit-mask-image: url("/blob.svg");
+  -webkit-mask-repeat: no-repeat;
+  /* -webkit-mask-size: cover; */
 }
 
 /* UnderlinedText.css */
@@ -53,4 +55,16 @@ section {
 .underline-container:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+@media (min-width: 640px) {
+  .mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .desktop {
+    display: none;
+  }
 }
