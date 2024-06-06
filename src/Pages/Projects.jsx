@@ -9,7 +9,7 @@ function Projects() {
       <div className="flex h-[65vh] flex-col gap-4 overflow-scroll p-6">
         <Project
           imagePath="project1.png"
-          projectName="My Portifolio"
+          projectName="My Portfolio"
           projectDescription="In this Project, I used ReactJs along with tailwindCSS and implemented a simple minialistic webpage to showcase my skills and projects. "
           labels={["ReactJS", "Tailwind"]}
           colors={["#58c4dc", "#68c7f0"]}
