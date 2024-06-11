@@ -33,7 +33,7 @@ function Homepage() {
         </p>
         <button
           onClick={handleDownload}
-          className="inline w-fit rounded-xl bg-black p-2 text-base text-white sm:p-3"
+          className="inline w-fit rounded-xl border-2 border-dashed border-black bg-black p-2 text-base text-white hover:bg-white hover:text-black sm:p-3"
         >
           Download Resume
         </button>
