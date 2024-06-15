@@ -20,7 +20,7 @@ function Homepage() {
   return (
     <section className="mx-auto flex max-w-[1200px] flex-col items-center sm:flex-row sm:justify-around xl:justify-between">
       <div className="mobile">
-        <img src="DevImage.JPG" alt="dev" className="devImage h-[350px]" />
+        <img src="DevImage.JPG" alt="dev" className="devImage h-[300px]" />
       </div>
       <div className="flex flex-col justify-center p-4 sm:text-xl xl:text-2xl">
         <p>Namaste!</p>
