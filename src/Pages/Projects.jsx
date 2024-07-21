@@ -8,6 +8,14 @@ function Projects() {
       </h1>
       <div className="flex h-[65vh] flex-col gap-4 overflow-scroll p-6">
         <Project
+          imagePath="project3.png"
+          projectName="Multiplayer-Dice-Game"
+          projectDescription="Used socket.io and ReactJs to create a simple Dice Game"
+          labels={["ReactJS", "Socket.io"]}
+          colors={["#58c4dc", "#68c7f0"]}
+          liveLink="#"
+        ></Project>
+        <Project
           imagePath="project1.png"
           projectName="My Portfolio"
           projectDescription="In this Project, I used ReactJs along with tailwindCSS and implemented a simple minialistic webpage to showcase my skills and projects. "

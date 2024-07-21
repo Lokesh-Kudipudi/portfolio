@@ -13,7 +13,9 @@ function Project({
     <div className="flex flex-col items-center gap-4 border-4 border-dashed border-black p-4 md:flex-row md:gap-8">
       <img className="w-[200px]" src={`${imagePath}`} alt="none" />
       <div>
-        <h1 className="text-xl md:text-2xl">{projectName}</h1>
+        <h1 className="underline-container text-xl md:text-2xl">
+          {projectName}
+        </h1>
         <div className="mb-2 p-1">
           {labels.map((label, i) => (
             <Label key={i} color={colors[i]} text={label}></Label>
