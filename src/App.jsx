@@ -5,20 +5,23 @@ import ContactMe from "./Pages/ContactMe";
 import Homepage from "./Pages/Homepage";
 import PageNotFound from "./Pages/PageNotFound";
 import AppLayout from "./AppLayout";
+import DarkModeProvider from "./context/DarkModeProvider";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<AppLayout></AppLayout>}>
-          <Route index element={<Homepage></Homepage>}></Route>
-          <Route path="/skills" element={<Skills></Skills>}></Route>
-          <Route path="/projects" element={<Projects></Projects>}></Route>
-          <Route path="/contactme" element={<ContactMe></ContactMe>}></Route>
-        </Route>
-        <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
-      </Routes>
-    </BrowserRouter>
+    <DarkModeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AppLayout></AppLayout>}>
+            <Route index element={<Homepage></Homepage>}></Route>
+            <Route path="/skills" element={<Skills></Skills>}></Route>
+            <Route path="/projects" element={<Projects></Projects>}></Route>
+            <Route path="/contactme" element={<ContactMe></ContactMe>}></Route>
+          </Route>
+          <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
+        </Routes>
+      </BrowserRouter>
+    </DarkModeProvider>
   );
 }
 

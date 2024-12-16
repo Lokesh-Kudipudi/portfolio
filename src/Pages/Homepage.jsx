@@ -18,7 +18,7 @@ function Homepage() {
   };
 
   return (
-    <section className="mx-auto flex max-w-[1200px] flex-col items-center sm:flex-row sm:justify-around xl:justify-between">
+    <section className="mx-auto flex max-w-[1200px] flex-col items-center sm:flex-row sm:justify-around xl:justify-between dark:text-white">
       <div className="mobile">
         <img src="DevImage.JPG" alt="dev" className="devImage h-[300px]" />
       </div>
@@ -33,7 +33,7 @@ function Homepage() {
         </p>
         <button
           onClick={handleDownload}
-          className="inline w-fit rounded-xl border-2 border-dashed border-black bg-black p-2 text-base text-white hover:bg-white hover:text-black sm:p-3"
+          className="inline w-fit rounded-xl border-2 border-dashed border-black bg-black p-2 text-base text-white hover:bg-white hover:text-black sm:p-3 dark:border-white dark:bg-white dark:text-black dark:hover:border-white dark:hover:bg-black dark:hover:text-white"
         >
           Download Resume
         </button>

@@ -1,10 +1,23 @@
+// import {useDarkModeContext} from "../"
+import { useDarkModeContext } from "../context/DarkModeProvider";
+
 function Footer() {
+  const { darkMode, setDarkMode } = useDarkModeContext();
+
+  const handleClickFooter = () => {
+    document.querySelector("html").classList.toggle("dark");
+    document.querySelector("body").classList.toggle("bg-black");
+    setDarkMode((s) => !s);
+  };
+
   return (
     <div className="absolute bottom-1 right-2 text-[10px] sm:text-xs">
-      <p className="text-gray-600">
-        Feel free to send a review of this portfolio to
-        lokeshkudipudi2006@gmail.com
-      </p>
+      <button
+        className="rounded-lg bg-black p-3 text-white dark:bg-white dark:text-black"
+        onClick={handleClickFooter}
+      >
+        {darkMode ? "Toggle Light Mode" : "Toggle Dark Mode"}
+      </button>
     </div>
   );
 }

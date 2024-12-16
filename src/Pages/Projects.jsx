@@ -3,14 +3,14 @@ import Project from "../Components/Project";
 function Projects() {
   return (
     <section className="mx-auto flex max-w-[1200px] flex-col items-center">
-      <h1 className="underline-container mb-6 w-[fit] text-2xl font-bold">
+      <h1 className="underline-container mb-6 w-[fit] text-4xl font-bold italic after:bg-black dark:text-white dark:after:bg-white">
         Here are my Projects!
       </h1>
       <div className="flex h-[65vh] flex-col gap-4 overflow-scroll p-6">
         <Project
           imagePath="project3.png"
           projectName="Multiplayer-Dice-Game"
-          projectDescription="Used socket.io and ReactJs to create a simple Dice Game"
+          projectDescription="Used socket.io and ReactJs to create a simple Dice Game. Implementing Real Time Communication."
           labels={["ReactJS", "Socket.io"]}
           colors={["#58c4dc", "#68c7f0"]}
           liveLink="#"
@@ -18,7 +18,7 @@ function Projects() {
         <Project
           imagePath="project1.png"
           projectName="My Portfolio"
-          projectDescription="In this Project, I used ReactJs along with tailwindCSS and implemented a simple minialistic webpage to showcase my skills and projects. "
+          projectDescription="In this Project, I used ReactJs along with tailwindCSS and implemented a simple minimalistic webpage to showcase my skills and projects. "
           labels={["ReactJS", "Tailwind"]}
           colors={["#58c4dc", "#68c7f0"]}
           liveLink="/"

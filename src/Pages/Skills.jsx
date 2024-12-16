@@ -4,7 +4,7 @@ import handleHover from "../utils/index";
 function Skills() {
   return (
     <section className="mx-auto flex max-w-[1200px] flex-col items-center gap-8">
-      <h1 className="underline-container text-2xl font-bold">
+      <h1 className="underline-container text-4xl font-bold italic after:bg-black dark:text-white dark:after:bg-white">
         These are my Skills!
       </h1>
       <div
@@ -12,6 +12,7 @@ function Skills() {
         onMouseOut={(e) => handleHover(e, 1)}
         className="skills grid h-[65vh] grid-cols-2 gap-x-4 gap-y-3 overflow-scroll p-6 sm:grid-cols-3 md:grid-cols-4 md:gap-x-12 md:gap-y-6"
       >
+        <Skill imagePath="nextjs.svg" text="NextJs"></Skill>
         <Skill imagePath="react.svg" text="ReactJS"></Skill>
         <Skill imagePath="tailwind-css.svg" text="Tailwind"></Skill>
         <Skill

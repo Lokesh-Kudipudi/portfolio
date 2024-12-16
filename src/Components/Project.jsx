@@ -10,10 +10,10 @@ function Project({
   colors,
 }) {
   return (
-    <div className="flex flex-col items-center gap-4 border-4 border-dashed border-black p-4 md:flex-row md:gap-8">
+    <div className="flex flex-col items-center gap-4 border-4 border-dashed border-black p-4 md:flex-row md:gap-8 dark:border-white">
       <img className="w-[200px]" src={`${imagePath}`} alt="none" />
-      <div>
-        <h1 className="underline-container text-xl md:text-2xl">
+      <div className="dark:text-white">
+        <h1 className="underline-container text-xl after:bg-black md:text-2xl dark:after:bg-white">
           {projectName}
         </h1>
         <div className="mb-2 p-1">
