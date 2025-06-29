@@ -10,7 +10,7 @@ function Skills() {
       <div
         onMouseOver={(e) => handleHover(e, 0.5)}
         onMouseOut={(e) => handleHover(e, 1)}
-        className="skills grid h-[65vh] grid-cols-2 gap-x-4 gap-y-3 overflow-scroll p-6 sm:grid-cols-3 md:grid-cols-4 md:gap-x-12 md:gap-y-6"
+        className="skills scrollbar-hide grid h-[65vh] grid-cols-2 gap-x-4 gap-y-3 overflow-y-scroll p-6 sm:grid-cols-3 md:grid-cols-4 md:gap-x-12 md:gap-y-6"
       >
         <Skill imagePath="nextjs.svg" text="NextJs" invert={true}></Skill>
         <Skill imagePath="react.svg" text="ReactJS" invert={false}></Skill>

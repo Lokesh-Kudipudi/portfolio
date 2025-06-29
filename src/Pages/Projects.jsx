@@ -6,7 +6,7 @@ function Projects() {
       <h1 className="underline-container mb-6 w-[fit] text-4xl font-bold italic after:bg-black dark:text-white dark:after:bg-white">
         Here are my Projects!
       </h1>
-      <div className="flex h-[65vh] flex-col gap-4 overflow-scroll p-6">
+      <div className="scrollbar-hide flex h-[65vh] flex-col gap-4 overflow-y-scroll p-6">
         <Project
           imagePath="project3.png"
           projectName="Multiplayer-Dice-Game"
