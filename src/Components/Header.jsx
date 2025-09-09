@@ -14,6 +14,12 @@ function Header() {
       <div className="flex gap-2 sm:text-lg md:gap-4 md:text-2xl">
         <Link
           className="underline-container after:bg-black dark:after:bg-white"
+          to="/aboutme"
+        >
+          About Me
+        </Link>
+        <Link
+          className="underline-container after:bg-black dark:after:bg-white"
           to="/projects"
         >
           Projects

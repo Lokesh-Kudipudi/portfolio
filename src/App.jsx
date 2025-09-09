@@ -6,6 +6,7 @@ import Homepage from "./Pages/Homepage";
 import PageNotFound from "./Pages/PageNotFound";
 import AppLayout from "./AppLayout";
 import DarkModeProvider from "./context/DarkModeProvider";
+import AboutMe from "./Pages/AboutMe";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/skills" element={<Skills></Skills>}></Route>
             <Route path="/projects" element={<Projects></Projects>}></Route>
             <Route path="/contactme" element={<ContactMe></ContactMe>}></Route>
+            <Route path="/aboutme" element={<AboutMe></AboutMe>}></Route>
           </Route>
           <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
         </Routes>

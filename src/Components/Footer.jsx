@@ -11,7 +11,7 @@ function Footer() {
   };
 
   return (
-    <div className="absolute bottom-1 right-2 text-[10px] sm:text-xs">
+    <div className="absolute bottom-4 right-4 text-[10px] sm:text-xs">
       <button
         className="rounded-lg bg-black p-3 text-white dark:bg-white dark:text-black"
         onClick={handleClickFooter}
