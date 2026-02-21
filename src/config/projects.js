@@ -1,0 +1,86 @@
+const projects = [
+  {
+    id: "mockly",
+    appId: "project-mockly",
+    title: "Mockly",
+    type: "Agentic AI",
+    description: "AI Mock Interview Platform",
+    url: "https://github.com/Lokesh-Kudipudi/Mockly",
+    github: "https://github.com/Lokesh-Kudipudi/Mockly",
+    images: [
+      "/projects/mockly-1.png",
+      "/projects/mockly-2.png",
+      "/projects/mockly-3.png",
+    ],
+    readme: [
+      "Developed a Full-Stack AI Interview Platform: Engineered a real-time mock interview application using a Next.js frontend for a dynamic, responsive user interface and a Python backend (managed with uv) to orchestrate complex server logic and AI processing.",
+      "Architected a Conversational AI Pipeline: Integrated advanced Large Language Models (Google Gemini) with a comprehensive audio processing pipeline utilizing Whisper for precise Speech-to-Text (STT) transcription and robust Text-to-Speech (TTS) engines (including Kokoro and Gemini APIs) to simulate natural, human-like interviews.",
+      "Implemented Real-Time Audio Processing: Built low-latency voice interaction features by incorporating Voice Activity Detection (VAD) and continuous audio streaming architectures, allowing for seamless, interruptible, and interactive voice-based conversations.",
+    ],
+    window: { width: 860, height: 620 },
+  },
+  {
+    id: "book-translator",
+    appId: "project-book-translator",
+    title: "Book Translator",
+    type: "Natural Language Processing",
+    description: "Book Translator Application",
+    url: "https://colab.research.google.com/drive/1JSha8XQTfT_chVoXaoNxBnQUuVTqwv43?usp=sharing",
+    github: "https://github.com/Lokesh-Kudipudi/Book-Translator",
+    images: [
+      "/projects/bt-1.png",
+      "/projects/bt-2.png",
+    ],
+    readme: [
+      "Developed an ML-powered document translation pipeline leveraging the AI4Bharat/IndicTrans2 (1B parameter) model to process English texts into five Indian languages (Hindi, Marathi, Gujarati, Tamil, Telugu) with high accuracy.",
+      "Preserved original document layouts and formatting across PDF and TXT files by engineering a robust batch-processing system for large-scale document translations.",
+      "Quantified model performance using standard NLP evaluation metrics (BLEU Score, Translation Edit Rate (TER), and METEOR), conducting rigorous comparative analysis against commercial APIs including Google Translate, ChatGPT, and Gemini to validate translation quality.",
+    ],
+    window: { width: 860, height: 620 },
+  },
+  {
+    id: "devquiz",
+    appId: "project-devquiz",
+    title: "DevQuiz",
+    type: "Agentic AI",
+    description: "A Platform for Aptitude, Coding rounds preperation",
+    url: "https://dev-quiz-gold.vercel.app/",
+    github: "https://github.com/Lokesh-Kudipudi/DevQuiz",
+    images: [
+      "/projects/devquiz-1.png",
+      "/projects/devquiz-2.png",
+      "/projects/devquiz-3.png",
+      "/projects/devquiz-4.png",
+      "/projects/devquiz-5.png",
+    ],
+    readme: [
+      "Built a full-stack technical assessment platform using the MERN stack (MongoDB, Express, React, Node.js) and Tailwind CSS, featuring Google OAuth 2.0 authentication, group-based role controls, and real-time leaderboards.",
+      "Engineered an AI-driven assessment engine by integrating the Gemini API to dynamically generate targeted quizzes, online assessments, and coding rounds across different difficulty tiers, utilizing react-markdown and rehype-highlight for interactive code snippet rendering.",
+      "Developed a custom \"Bring Your Own Key\" (BYOK) architecture allowing users to securely inject their own Gemini API keys via local storage, reducing central API quota limits while implementing robust state management to track real-time progress and per-group analytics.",
+    ],
+    window: { width: 860, height: 620 },
+  },
+  {
+    id: "chasing-horizons",
+    appId: "project-chasing-horizons",
+    title: "Chasing Horizons",
+    type: "Web Development",
+    description: "A Comprehensive Tours and Hotels Booking Platform",
+    url: "https://chasing-horizon.vercel.app/",
+    github: "https://github.com/Lokesh-Kudipudi/FDFED-Sem-5",
+    images: [
+      "/projects/chasing-horizon-1.png",
+      "/projects/chasing-horizon-2.png",
+      "/projects/chasing-horizon-3.png",
+      "/projects/chasing-horizon-4.png",
+    ],
+    readme: [
+      "Full-Stack Travel Platform: Architected and developed \"Chasing Horizons,\" a comprehensive travel and tourism management system utilizing the MERN stack (MongoDB, Express.js, React, Node.js) to support distinct workflows for travelers, hotel managers, tour guides, and administrators.",
+      "Real-Time Booking & Customization: Engineered a dynamic real-time booking engine for hotels and tours with availability checks, alongside a feature allowing users to request and customize personalized tour packages, enhancing the overall user experience.",
+      "AI Integration & Analytics: Integrated Google's Gemini AI to power an intelligent chatbot and deliver personalized travel recommendations, while implementing centralized dashboards with comprehensive analytics for administrators and service providers to efficiently manage operations.",
+    ],
+    window: { width: 860, height: 620 },
+  },
+];
+
+export default projects;
