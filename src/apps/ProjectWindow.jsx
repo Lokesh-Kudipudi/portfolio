@@ -81,17 +81,36 @@ const ProjectWindow = ({ appId }) => {
   return (
     <div className="h-full flex flex-col md:flex-row text-white relative">
       <div className="w-full md:w-[200px] bg-[#282828]/80 p-[10px] flex flex-row md:flex-col gap-[6px] backdrop-blur-md shrink-0 border-b md:border-b-0 md:border-r border-white/10 overflow-x-auto no-scrollbar">
-        <div className="hidden md:block px-[10px] py-[5px] text-[11px] font-bold text-[#888] shrink-0">
-          Favorites
+        <div className="hidden md:block px-[10px] py-[5px] text-[11px] font-bold text-[#888] shrink-0 uppercase tracking-wider">
+          Skills
         </div>
-        <div className="px-[10px] py-[6px] rounded-md bg-white/10 text-[13px] flex items-center gap-2 whitespace-nowrap shrink-0">
-          <div className="w-3.5 h-3.5 bg-blue-500 rounded-full"></div>
-          {project.title}
-        </div>
-        <div className="px-[10px] py-[6px] rounded-md text-[13px] flex items-center gap-2 opacity-70 whitespace-nowrap shrink-0">
-          <div className="w-3.5 h-3.5 bg-emerald-500 rounded-full"></div>
-          {project.type}
-        </div>
+        {project.skills?.map((skill, index) => {
+          const colors = [
+            "bg-blue-500",
+            "bg-emerald-500",
+            "bg-purple-500",
+            "bg-pink-500",
+            "bg-yellow-500",
+            "bg-red-500",
+            "bg-indigo-500",
+            "bg-teal-500",
+            "bg-orange-500",
+            "bg-cyan-500",
+          ];
+          return (
+            <div
+              key={index}
+              className="px-[10px] py-[6px] rounded-md text-[13px] flex items-center gap-2 opacity-70 whitespace-nowrap shrink-0"
+            >
+              <div
+                className={`w-3.5 h-3.5 rounded-full ${
+                  colors[index % colors.length]
+                }`}
+              ></div>
+              {skill}
+            </div>
+          );
+        })}
       </div>
 
       <div className="flex-1 bg-[#1e1e1e]/90 p-5 overflow-y-auto">

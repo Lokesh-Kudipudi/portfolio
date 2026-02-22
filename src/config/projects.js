@@ -17,13 +17,15 @@ const projects = [
       "Architected a Conversational AI Pipeline: Integrated advanced Large Language Models (Google Gemini) with a comprehensive audio processing pipeline utilizing Whisper for precise Speech-to-Text (STT) transcription and robust Text-to-Speech (TTS) engines (including Kokoro and Gemini APIs) to simulate natural, human-like interviews.",
       "Implemented Real-Time Audio Processing: Built low-latency voice interaction features by incorporating Voice Activity Detection (VAD) and continuous audio streaming architectures, allowing for seamless, interruptible, and interactive voice-based conversations.",
     ],
+    skills: ["Next.js", "Python", "Google Gemini API", "Whisper", "Audio Processing"],
     window: { width: 860, height: 620 },
+    
   },
   {
     id: "book-translator",
     appId: "project-book-translator",
     title: "Book Translator",
-    type: "Natural Language Processing",
+    type: "NLP",
     description: "Book Translator Application",
     url: "https://colab.research.google.com/drive/1JSha8XQTfT_chVoXaoNxBnQUuVTqwv43?usp=sharing",
     github: "https://github.com/Lokesh-Kudipudi/Book-Translator",
@@ -36,6 +38,7 @@ const projects = [
       "Preserved original document layouts and formatting across PDF and TXT files by engineering a robust batch-processing system for large-scale document translations.",
       "Quantified model performance using standard NLP evaluation metrics (BLEU Score, Translation Edit Rate (TER), and METEOR), conducting rigorous comparative analysis against commercial APIs including Google Translate, ChatGPT, and Gemini to validate translation quality.",
     ],
+    skills: ["Python", "Hugging Face", "IndicTrans2", "NLP"],
     window: { width: 860, height: 620 },
   },
   {
@@ -58,6 +61,7 @@ const projects = [
       "Engineered an AI-driven assessment engine by integrating the Gemini API to dynamically generate targeted quizzes, online assessments, and coding rounds across different difficulty tiers, utilizing react-markdown and rehype-highlight for interactive code snippet rendering.",
       "Developed a custom \"Bring Your Own Key\" (BYOK) architecture allowing users to securely inject their own Gemini API keys via local storage, reducing central API quota limits while implementing robust state management to track real-time progress and per-group analytics.",
     ],
+    skills: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "Google Gemini API", "OAuth 2.0"],
     window: { width: 860, height: 620 },
   },
   {
@@ -79,6 +83,7 @@ const projects = [
       "Real-Time Booking & Customization: Engineered a dynamic real-time booking engine for hotels and tours with availability checks, alongside a feature allowing users to request and customize personalized tour packages, enhancing the overall user experience.",
       "AI Integration & Analytics: Integrated Google's Gemini AI to power an intelligent chatbot and deliver personalized travel recommendations, while implementing centralized dashboards with comprehensive analytics for administrators and service providers to efficiently manage operations.",
     ],
+    skills: ["React.js", "Node.js", "Express.js", "MongoDB", "Google Gemini API"],
     window: { width: 860, height: 620 },
   },
 ];
