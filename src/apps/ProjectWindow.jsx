@@ -1,6 +1,58 @@
 import React from "react";
 import projects from "../config/projects";
 import { useOS } from "../context/OSContext";
+import {
+  SiNextdotjs,
+  SiPython,
+  SiGoogle,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiTailwindcss,
+  SiHuggingface,
+} from "react-icons/si";
+import {
+  AudioLines,
+  CodeSquare,
+  Network,
+  Wand2,
+  Database,
+  Lock,
+  Layers,
+  MessageSquare,
+  CheckCircle2,
+} from "lucide-react";
+
+// Helper to map skill names to appropriate icons
+const getSkillIcon = (skillName) => {
+  const name = skillName.toLowerCase();
+  
+  if (name.includes("next.js")) return <SiNextdotjs size={14} className="text-white" />;
+  if (name.includes("python")) return <SiPython size={14} className="text-blue-400" />;
+  if (name.includes("react") || name.includes("react.js")) return <SiReact size={14} className="text-cyan-400" />;
+  if (name.includes("node.js") || name.includes("nodejs")) return <SiNodedotjs size={14} className="text-green-500" />;
+  if (name.includes("express") || name.includes("express.js")) return <SiExpress size={14} className="text-gray-300" />;
+  if (name.includes("mongodb") || name.includes("mongo")) return <SiMongodb size={14} className="text-green-400" />;
+  if (name.includes("tailwind")) return <SiTailwindcss size={14} className="text-teal-400" />;
+  if (name.includes("gemini")) return <SiGoogle size={14} className="text-blue-500" />;
+  if (name.includes("hugging face") || name.includes("huggingface")) return <SiHuggingface size={14} className="text-yellow-400" />;
+  
+  // Audio/Speech mapping
+  if (name.includes("whisper") || name.includes("audio processing") || name.includes("speech") || name.includes("tts")) 
+    return <AudioLines size={14} className="text-purple-400" />;
+  
+  // NLP mapping
+  if (name.includes("nlp") || name.includes("indictrans2") || name.includes("translation")) 
+    return <MessageSquare size={14} className="text-emerald-400" />;
+  
+  // Auth mapping
+  if (name.includes("oauth") || name.includes("auth")) 
+    return <Lock size={14} className="text-violet-400" />;
+
+  // Default fallback icons based on index
+  return <CheckCircle2 size={14} className="text-indigo-400" />;
+};
 
 const ProjectWindow = ({ appId }) => {
   const project = projects.find((item) => item.appId === appId);
@@ -85,28 +137,14 @@ const ProjectWindow = ({ appId }) => {
           Skills
         </div>
         {project.skills?.map((skill, index) => {
-          const colors = [
-            "bg-blue-500",
-            "bg-emerald-500",
-            "bg-purple-500",
-            "bg-pink-500",
-            "bg-yellow-500",
-            "bg-red-500",
-            "bg-indigo-500",
-            "bg-teal-500",
-            "bg-orange-500",
-            "bg-cyan-500",
-          ];
           return (
             <div
               key={index}
-              className="px-[10px] py-[6px] rounded-md text-[13px] flex items-center gap-2 opacity-70 whitespace-nowrap shrink-0"
+              className="px-[10px] py-[6px] rounded-md text-[13px] flex items-center gap-2.5 opacity-80 hover:opacity-100 whitespace-nowrap shrink-0 transition-opacity"
             >
-              <div
-                className={`w-3.5 h-3.5 rounded-full ${
-                  colors[index % colors.length]
-                }`}
-              ></div>
+              <div className="flex items-center justify-center">
+                {getSkillIcon(skill)}
+              </div>
               {skill}
             </div>
           );

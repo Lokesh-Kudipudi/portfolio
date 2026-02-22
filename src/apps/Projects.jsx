@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import projects from "../config/projects";
 import { useOS } from "../context/OSContext";
 
+import { LayoutGrid, Globe, BrainCircuit, MessageSquare, Terminal, Lightbulb } from "lucide-react";
+
 const Projects = () => {
   const { openApp } = useOS();
   const [selectedDomain, setSelectedDomain] = useState("All Projects");
@@ -16,17 +18,20 @@ const Projects = () => {
       ? projects
       : projects.filter((p) => (p.type || "Other") === selectedDomain);
 
-  const colors = [
-    "bg-purple-500",
-    "bg-green-500",
-    "bg-yellow-500",
-    "bg-red-500",
-    "bg-pink-500",
-    "bg-indigo-500",
-    "bg-teal-500",
-    "bg-orange-500",
-    "bg-cyan-500",
-  ];
+  const getDomainIcon = (domain) => {
+    switch (domain) {
+      case "Agentic AI":
+        return <BrainCircuit size={14} />;
+      case "Web Development":
+        return <Globe size={14} />;
+      case "NLP":
+        return <MessageSquare size={14} />;
+      case "All Projects":
+        return <LayoutGrid size={14} />;
+      default:
+        return <Lightbulb size={14} />;
+    }
+  };
 
   return (
     <div className="h-full flex flex-col md:flex-row">
@@ -43,24 +48,37 @@ const Projects = () => {
           }`}
           onClick={() => setSelectedDomain("All Projects")}
         >
-          <div className="w-3.5 h-3.5 bg-blue-500 rounded-full"></div>{" "}
+          <div className="text-blue-400 flex items-center justify-center">
+            {getDomainIcon("All Projects")}
+          </div>
           All Projects
         </div>
         
-        {allDomains.map((domain, idx) => (
-          <div
-            key={domain}
-            className={`px-[10px] py-[6px] rounded-md text-[13px] flex items-center gap-2 cursor-pointer whitespace-nowrap shrink-0 transition-colors ${
-              selectedDomain === domain
-                ? "bg-white/10 opacity-100"
-                : "opacity-70 hover:bg-white/5"
-            }`}
-            onClick={() => setSelectedDomain(domain)}
-          >
-            <div className={`w-3.5 h-3.5 rounded-full ${colors[idx % colors.length]}`}></div>{" "}
-            {domain}
-          </div>
-        ))}
+        {allDomains.map((domain, idx) => {
+          const colors = [
+            "text-purple-400",
+            "text-green-400",
+            "text-yellow-400",
+            "text-red-400",
+            "text-pink-400",
+          ];
+          return (
+            <div
+              key={domain}
+              className={`px-[10px] py-[6px] rounded-md text-[13px] flex items-center gap-2 cursor-pointer whitespace-nowrap shrink-0 transition-colors ${
+                selectedDomain === domain
+                  ? "bg-white/10 opacity-100"
+                  : "opacity-70 hover:bg-white/5"
+              }`}
+              onClick={() => setSelectedDomain(domain)}
+            >
+              <div className={`flex items-center justify-center ${colors[idx % colors.length]}`}>
+                {getDomainIcon(domain)}
+              </div>
+              {domain}
+            </div>
+          );
+        })}
       </div>
 
       {/* Main Content */}
