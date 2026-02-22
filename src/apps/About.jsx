@@ -5,8 +5,7 @@ import skills from '../config/skills';
 const About = () => {
 
   return (
-    <div className="p-6 md:p-8 h-full w-full flex flex-col items-center overflow-y-auto overflow-x-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/10 via-purple-900/10 to-black/20 pointer-events-none" />
+    <div className="p-6 md:p-8 h-full w-full flex flex-col items-center overflow-y-auto overflow-x-hidden relative bg-gradient-to-br from-indigo-900/10 via-purple-900/10 to-black/20">
       
       <div className="w-full max-w-3xl mx-auto flex flex-col gap-8 z-10">
         

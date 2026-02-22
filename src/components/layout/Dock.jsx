@@ -14,6 +14,18 @@ const Dock = () => {
   const mouseX = useMotionValue(Infinity);
   const { openApps } = useOS();
 
+  const [isMobile, setIsMobile] = React.useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
+
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    window.visualViewport?.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.visualViewport?.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const projectByAppId = useMemo(() => {
     return new Map(
       projects.map((project) => [project.appId, project]),
@@ -65,18 +77,21 @@ const Dock = () => {
 
   return (
     <div
-      className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-end gap-3 p-3 bg-white/20 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-lg z-[1000]"
+      className="absolute left-1/2 -translate-x-1/2 flex items-end gap-2 p-2 bg-white/20 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-lg z-[1000] max-w-[85vw] md:max-w-none overflow-x-auto no-scrollbar"
+      style={{
+        bottom: isMobile ? Math.max(20, (window.visualViewport?.height || window.innerHeight) * 0.03) : 20
+      }}
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
     >
       {dockItems.map((app) => (
-        <DockIcon key={app.id} app={app} mouseX={mouseX} />
+        <DockIcon key={app.id} app={app} mouseX={mouseX} isMobile={isMobile} />
       ))}
     </div>
   );
 };
 
-const DockIcon = ({ app, mouseX }) => {
+const DockIcon = ({ app, mouseX, isMobile }) => {
   const ref = useRef(null);
   const { openApp, openApps } = useOS();
   const [isHovered, setIsHovered] = React.useState(false);
@@ -92,7 +107,7 @@ const DockIcon = ({ app, mouseX }) => {
   const widthSync = useTransform(
     distance,
     [-150, 0, 150],
-    [60, 100, 60],
+    isMobile ? [40, 60, 40] : [60, 100, 60],
   );
   const width = useSpring(widthSync, {
     mass: 0.1,

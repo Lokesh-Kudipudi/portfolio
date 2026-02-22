@@ -22,8 +22,7 @@ const Contact = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="p-4 md:p-6 h-full w-full flex flex-col items-center justify-center overflow-y-auto overflow-x-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/10 via-purple-900/10 to-black/20 pointer-events-none" />
+    <div className="p-4 md:p-6 h-full w-full flex flex-col items-center justify-center overflow-y-auto overflow-x-hidden relative bg-gradient-to-br from-indigo-900/10 via-purple-900/10 to-black/20">
       
       <div className="w-full max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 z-10">
         

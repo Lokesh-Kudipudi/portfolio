@@ -11,7 +11,7 @@ const Desktop = () => {
 
   return (
     <motion.div
-      className="w-screen h-screen bg-cover bg-center relative overflow-hidden"
+      className="w-screen h-[100dvh] bg-cover bg-center relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}

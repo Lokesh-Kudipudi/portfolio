@@ -13,14 +13,27 @@ const Window = ({ id, title, children, minWidth = 600, minHeight = 400 }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
+  const [windowSize, setWindowSize] = useState({ 
+    width: typeof window !== 'undefined' ? window.innerWidth : 1024, 
+    height: typeof window !== 'undefined' ? window.innerHeight : 768 
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Responsive sizing
-  const isMobile = window.innerWidth < 768;
-  const initWidth = isMobile ? window.innerWidth * 0.9 : minWidth;
-  const initHeight = isMobile ? window.innerHeight * 0.8 : minHeight;
+  const isMobile = windowSize.width < 768;
+  const initWidth = isMobile ? windowSize.width * 0.9 : minWidth;
+  const initHeight = isMobile ? windowSize.height * 0.8 : minHeight;
     
   // Initial random position slightly offset to avoid stacking perfectly
-  const initialX = isMobile ? (window.innerWidth - initWidth) / 2 : Math.random() * 50 + 100;
-  const initialY = isMobile ? 50 : Math.random() * 50 + 50;
+  const initialX = isMobile ? 0 : Math.random() * 50 + 100;
+  const initialY = isMobile ? 0 : Math.random() * 50 + 50;
 
   const toggleFullScreen = (e) => {
     e.stopPropagation();
@@ -29,27 +42,27 @@ const Window = ({ id, title, children, minWidth = 600, minHeight = 400 }) => {
 
   return (
     <motion.div
-    drag={!isFullScreen}
-    dragConstraints={{ left: 0, top: 30, right: window.innerWidth - minWidth, bottom: window.innerHeight - minHeight }}
+    drag={!isFullScreen && !isMobile}
+    dragConstraints={{ left: 0, top: 30, right: isMobile ? 0 : windowSize.width - minWidth, bottom: isMobile ? 0 : windowSize.height - minHeight }}
     dragMomentum={false}
     initial={{ scale: 0.9, opacity: 0, x: initialX, y: initialY }}
     animate={{ 
         scale: isMinimized ? 0 : 1, 
         opacity: isMinimized ? 0 : 1,
-        y: isMinimized ? 500 : (isFullScreen ? 0 : undefined),
-        x: isFullScreen ? 0 : undefined,
-        width: isFullScreen ? "100vw" : initWidth,
-        height: isFullScreen ? "100vh" : initHeight,
-        borderRadius: isFullScreen ? 0 : 10
+        y: isMinimized ? 500 : (isFullScreen || isMobile ? 0 : undefined),
+        x: isFullScreen || isMobile ? 0 : undefined,
+        width: isFullScreen ? "100%" : (isMobile ? "100%" : initWidth),
+        height: isFullScreen ? "100%" : (isMobile ? "calc(100% - 80px)" : initHeight),
+        borderRadius: isFullScreen ? 0 : (isMobile ? 16 : 10)
     }}
     exit={{ scale: 0.9, opacity: 0 }}
     transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
     style={{
-        width: initWidth,
-        height: initHeight,
+        width: isFullScreen ? "100%" : (isMobile ? "100%" : initWidth),
+        height: isFullScreen ? "100%" : (isMobile ? "calc(100% - 80px)" : initHeight),
         zIndex: zIndex,
     }}
-    className={`absolute bg-[#1e1e1e]/65 backdrop-blur-3xl border border-white/10 shadow-2xl flex flex-col ${isFullScreen ? 'top-0 left-0' : ''}`}
+    className={`absolute bg-[#1e1e1e]/65 backdrop-blur-3xl border border-white/10 shadow-2xl flex flex-col ${isFullScreen || isMobile ? 'top-0 left-0' : ''}`}
     onPointerDown={() => focusApp(id)}
     >
       {/* Window Header */}
