@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
 import { Image, X } from 'lucide-react';
+import projects from '../config/projects';
 
-const photos = [
+const mePhotos = [
   { id: 1, src: '/me-casual.jpg', category: 'Me', alt: 'Me Casual' },
   { id: 2, src: '/me.JPG', category: 'Me', alt: 'Me Formal' },
-  { id: 3, src: '/projects/mockly-1.png', category: 'Mockly', alt: 'Mockly 1' },
-  { id: 4, src: '/projects/mockly-2.png', category: 'Mockly', alt: 'Mockly 2' },
-  { id: 5, src: '/projects/mockly-3.png', category: 'Mockly', alt: 'Mockly 3' },
-  { id: 6, src: '/projects/chasing-horizon-1.png', category: 'Chasing Horizon', alt: 'Chasing Horizon 1' },
-  { id: 7, src: '/projects/chasing-horizon-2.png', category: 'Chasing Horizon', alt: 'Chasing Horizon 2' },
-  { id: 8, src: '/projects/chasing-horizon-3.png', category: 'Chasing Horizon', alt: 'Chasing Horizon 3' },
-  { id: 9, src: '/projects/chasing-horizon-4.png', category: 'Chasing Horizon', alt: 'Chasing Horizon 4' },
-  { id: 10, src: '/projects/devquiz-1.png', category: 'DevQuiz', alt: 'DevQuiz 1' },
-  { id: 11, src: '/projects/devquiz-2.png', category: 'DevQuiz', alt: 'DevQuiz 2' },
-  { id: 12, src: '/projects/devquiz-3.png', category: 'DevQuiz', alt: 'DevQuiz 3' },
-  { id: 13, src: '/projects/devquiz-4.png', category: 'DevQuiz', alt: 'DevQuiz 4' },
-  { id: 14, src: '/projects/devquiz-5.png', category: 'DevQuiz', alt: 'DevQuiz 5' },
-  { id: 15, src: '/projects/bt-1.png', category: 'Book Translator', alt: 'Book Translator 1' },
-  { id: 16, src: '/projects/bt-2.png', category: 'Book Translator', alt: 'Book Translator 2' },
 ];
 
-const categories = ['All', 'Me', 'Mockly', 'Chasing Horizon', 'DevQuiz', 'Book Translator'];
+let photoIdCounter = mePhotos.length + 1;
+const projectPhotos = projects.flatMap(project =>
+  project.images.map((image, index) => ({
+    id: photoIdCounter++,
+    src: image,
+    category: project.title,
+    alt: `${project.title} ${index + 1}`,
+  }))
+);
+
+const photos = [...mePhotos, ...projectPhotos];
+const categories = ['All', 'Me', ...projects.map(p => p.title)];
+
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState('All');

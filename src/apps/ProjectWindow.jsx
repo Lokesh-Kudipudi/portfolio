@@ -75,14 +75,14 @@ const ProjectWindow = ({ appId }) => {
   };
 
   const files = [
-    {
+    project.url !== "NA" && {
       id: "brave-link",
       name: "Brave.url",
       type: "link",
       icon: "/icons/brave.svg",
       url: project.url,
     },
-    {
+    project.github !== "NA" && {
       id: "github-link",
       name: "GitHub.url",
       type: "link",
@@ -103,7 +103,7 @@ const ProjectWindow = ({ appId }) => {
       icon: image,
       image,
     })),
-  ];
+  ].filter(Boolean);
 
   const handleFileOpen = (file) => {
     if (file.type === "link") {

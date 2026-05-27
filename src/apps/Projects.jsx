@@ -10,13 +10,13 @@ const Projects = () => {
 
   // Extract unique domains (types) safely
   const allDomains = Array.from(
-    new Set(projects.map((p) => p.type || "Other"))
+    new Set(projects.map((p) => p.domain || "Other"))
   ).sort();
 
   const filteredProjects =
     selectedDomain === "All Projects"
       ? projects
-      : projects.filter((p) => (p.type || "Other") === selectedDomain);
+      : projects.filter((p) => (p.domain || "Other") === selectedDomain);
 
   const getDomainIcon = (domain) => {
     switch (domain) {
