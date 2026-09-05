@@ -1,29 +1,34 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Skills from "./Pages/Skills";
-import Projects from "./Pages/Projects";
-import ContactMe from "./Pages/ContactMe";
-import Homepage from "./Pages/Homepage";
-import PageNotFound from "./Pages/PageNotFound";
-import AppLayout from "./AppLayout";
-import DarkModeProvider from "./context/DarkModeProvider";
-import AboutMe from "./Pages/AboutMe";
+import { lazy, Suspense } from 'react';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
+import VersionSwitcher from './components/VersionSwitcher';
+import { readPreferredVersion } from './config/versions';
+
+const V1 = lazy(() => import('./versions/v1/App'));
+const V2 = lazy(() => import('./versions/v2/App'));
+
+function PreferredVersionRedirect() {
+  return <Navigate to={`/${readPreferredVersion()}`} replace />;
+}
 
 function App() {
   return (
-    <DarkModeProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <VersionSwitcher />
+      <Suspense fallback={<div className="version-loading" role="status">Loading portfolio…</div>}>
         <Routes>
-          <Route path="/" element={<AppLayout></AppLayout>}>
-            <Route index element={<Homepage></Homepage>}></Route>
-            <Route path="/skills" element={<Skills></Skills>}></Route>
-            <Route path="/projects" element={<Projects></Projects>}></Route>
-            <Route path="/contactme" element={<ContactMe></ContactMe>}></Route>
-            <Route path="/aboutme" element={<AboutMe></AboutMe>}></Route>
-          </Route>
-          <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
+          <Route path="/" element={<PreferredVersionRedirect />} />
+          <Route path="/v1/*" element={<V1 />} />
+          <Route path="/v2/*" element={<V2 />} />
+          {/* Keep links to the original portfolio pages working. */}
+          {['aboutme', 'projects', 'skills', 'contactme'].map((page) => (
+            <Route key={page} path={`/${page}`} element={<Navigate to={`/v1/${page}`} replace />} />
+          ))}
+          <Route path="*" element={<Navigate to="/v1/not-found" replace />} />
         </Routes>
-      </BrowserRouter>
-    </DarkModeProvider>
+      </Suspense>
+      <Analytics />
+    </BrowserRouter>
   );
 }
 
