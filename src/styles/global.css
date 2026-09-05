@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "./v1.css";
+@import "./version-switcher.css";
+
+@custom-variant dark (&:where(.portfolio-v1.dark, .portfolio-v1.dark *));
 
 @theme {
     --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -8,7 +12,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-system);
-  @apply bg-black text-white h-screen w-screen overflow-hidden select-none;
+  background: #000;
+}
+
+.portfolio-v2 {
+  @apply bg-black text-white overflow-hidden select-none;
 }
 
 input, textarea, [contenteditable] {
@@ -16,14 +24,14 @@ input, textarea, [contenteditable] {
 }
 
 /* Scrollbar styling */
-::-webkit-scrollbar {
+.portfolio-v2 ::-webkit-scrollbar {
   @apply w-2 h-2;
 }
 
-::-webkit-scrollbar-track {
+.portfolio-v2 ::-webkit-scrollbar-track {
   @apply bg-transparent;
 }
 
-::-webkit-scrollbar-thumb {
+.portfolio-v2 ::-webkit-scrollbar-thumb {
   @apply bg-white/20 rounded-full hover:bg-white/40;
 }

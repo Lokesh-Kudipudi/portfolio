@@ -1,0 +1,48 @@
+.portfolio-v1 {
+  position: relative;
+  min-height: calc(100dvh - 44px);
+  padding: 24px;
+  background: white;
+  color: black;
+  font-family: sans-serif;
+  transition: background-color 150ms, color 150ms;
+}
+.portfolio-v1.dark { background: black; color: white; }
+.portfolio-v1 section { animation: v1-fade-in 1s; }
+@keyframes v1-fade-in { from { opacity: 0; } to { opacity: 1; } }
+.portfolio-v1 .devImage {
+  -webkit-mask-image: url("/v1/blob.svg");
+  mask-image: url("/v1/blob.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+.portfolio-v1 .underline-container {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+.portfolio-v1 .underline-container::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.portfolio-v1 .underline-container:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+@media (min-width: 640px) { .portfolio-v1 .mobile { display: none; } }
+@media (max-width: 639px) {
+  .portfolio-v1 .desktop { display: none; }
+  .portfolio-v1 { padding: 24px 16px 144px; }
+}
+.portfolio-v1 .scrollbar-hide::-webkit-scrollbar { display: none; }
+.portfolio-v1 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-v1 section { animation: none; }
+}
