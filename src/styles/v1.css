@@ -1,6 +1,6 @@
 .portfolio-v1 {
   position: relative;
-  min-height: calc(100dvh - 44px);
+  min-height: calc(100dvh - var(--version-bar-space));
   padding: 24px;
   background: white;
   color: black;

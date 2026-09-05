@@ -1,7 +1,15 @@
-.version-bar {
-  position: sticky;
+:root { --version-bar-space: 0px; }
+
+.version-bar-reveal {
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 2147483647;
+  height: 12px;
+}
+
+.version-bar {
   height: 44px;
   display: flex;
   align-items: center;
@@ -13,6 +21,16 @@
   border-bottom: 1px solid #ffffff26;
   font-family: var(--font-system);
   font-size: 14px;
+  transform: translateY(-100%);
+  pointer-events: none;
+  transition: transform 220ms ease 180ms;
+}
+
+.version-bar-reveal:hover .version-bar,
+.version-bar-reveal:focus-within .version-bar {
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 0ms;
 }
 
 .version-bar-label { color: #b9b9c2; }
@@ -33,3 +51,14 @@
 .version-switcher a:focus-visible { outline: 2px solid #a5b4fc; outline-offset: 2px; }
 .version-switcher a span { font-weight: 400; }
 .version-loading { padding: 32px; color: #fff; }
+
+/* Keep the switch available on devices without hover. */
+@media (hover: none) {
+  :root { --version-bar-space: 44px; }
+  .version-bar-reveal { position: sticky; height: 44px; }
+  .version-bar { transform: none; pointer-events: auto; transition: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .version-bar { transition: none; }
+}

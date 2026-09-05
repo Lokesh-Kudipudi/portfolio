@@ -15,12 +15,14 @@ export default function VersionSwitcher() {
   }, [pathname]);
 
   return (
-    <header className="version-bar">
-      <span className="version-bar-label">Portfolio</span>
-      <nav className="version-switcher" aria-label="Portfolio version">
-        <NavLink to="/v1" title="V1 — Classic portfolio">V1 <span>Classic</span></NavLink>
-        <NavLink to="/v2" title="V2 — Desktop portfolio">V2 <span>Desktop</span></NavLink>
-      </nav>
-    </header>
+    <div className="version-bar-reveal">
+      <header className="version-bar">
+        <span className="version-bar-label">Portfolio</span>
+        <nav className="version-switcher" aria-label="Portfolio version">
+          <NavLink to="/v1" title="V1 — Classic portfolio">V1 <span>Classic</span></NavLink>
+          <NavLink to="/v2" title="V2 — Desktop portfolio">V2 <span>Desktop</span></NavLink>
+        </nav>
+      </header>
+    </div>
   );
 }

@@ -5,7 +5,7 @@ This is my personal portfolio site built with React, Vite, and Tailwind CSS.
 
 ## Two versions, one app
 
-The top navigation switches between both portfolio designs:
+The top navigation switches between both portfolio designs. It slides down when the cursor reaches the top edge or a navigation link receives keyboard focus, then hides when the user leaves it. On touch devices it stays visible.
 
 - **V1 Classic** (`/v1`): the original `main` branch portfolio, including its pages and light/dark theme.
 - **V2 Desktop** (`/v2`): the `V2` branch desktop interface, including its apps, windows, and dock.
